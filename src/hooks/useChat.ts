@@ -7,7 +7,7 @@ export interface Message {
   timestamp: Date;
 }
 
-const WEBHOOK_URL = "https://hakiy.app.n8n.cloud/webhook/chatapp";
+const WEBHOOK_URL = "https://hakiy.app.n8n.cloud/webhook-test/chatapp";
 
 export const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
