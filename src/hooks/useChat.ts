@@ -49,9 +49,26 @@ export const useChat = () => {
 
       const data = await response.json();
       
+      // Extract string content from various response formats
+      let responseContent: string;
+      if (typeof data === "string") {
+        responseContent = data;
+      } else if (data.response && typeof data.response === "string") {
+        responseContent = data.response;
+      } else if (data.message && typeof data.message === "string") {
+        responseContent = data.message;
+      } else if (data.output && typeof data.output === "string") {
+        responseContent = data.output;
+      } else if (data.text && typeof data.text === "string") {
+        responseContent = data.text;
+      } else {
+        // Format object as readable text
+        responseContent = JSON.stringify(data, null, 2);
+      }
+      
       const botMessage: Message = {
         id: crypto.randomUUID(),
-        content: data.response || data.message || data.output || JSON.stringify(data),
+        content: responseContent,
         isUser: false,
         timestamp: new Date(),
       };
