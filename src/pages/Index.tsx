@@ -28,7 +28,7 @@ const Index = () => {
             </div>
             <div>
               <h1 className="text-lg font-semibold text-foreground">Chat Assistant</h1>
-              <p className="text-xs text-muted-foreground">Powered by n8n webhook</p>
+              <p className="text-xs text-muted-foreground">Powered by AgenticAI Lab</p>
             </div>
           </div>
           {messages.length > 0 && (
